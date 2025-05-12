@@ -1,0 +1,140 @@
+/* ---------- Form Styling (Login/Signup) ---------- */
+.form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #004d26;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 12px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 12px 10px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #004d26;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #007f4d;
+}
+
+.form-container a {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: #007f4d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Dashboard Styling ---------- */
+.dashboard-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dashboard-card {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.dashboard-card p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.dashboard-actions .btn {
+  padding: 12px;
+  background-color: #004d26;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.dashboard-actions .btn:hover {
+  background-color: #007f4d;
+}
+
+.logout-button {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c0392b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #e74c3c;
+}
+
+/* ---------- Responsive Fix ---------- */
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
