@@ -1,0 +1,220 @@
+
+/* ---------- Form Styling (Login/Signup) ---------- */
+.form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #004d26;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 12px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 12px 10px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #004d26;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #007f4d;
+}
+
+.form-container a {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: #007f4d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Dashboard Styling ---------- */
+.dashboard-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dashboard-card {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.dashboard-card p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.dashboard-actions .btn {
+  padding: 12px;
+  background-color: #004d26;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.dashboard-actions .btn:hover {
+  background-color: #007f4d;
+}
+
+.logout-button {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c0392b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #e74c3c;
+}
+
+/* ---------- Table & Form Responsive Fix ---------- */
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table th, table td {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+}
+
+form {
+  margin-bottom: 1rem;
+}
+
+select, input[type="email"], button {
+  padding: 0.5rem;
+  margin-right: 10px;
+}
+.admin-box {
+  width: 95%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.admin-box h2, .admin-box h3 {
+  color: #004d26;
+  margin-bottom: 1rem;
+}
+
+.admin-box form input,
+.admin-box form select,
+.admin-box form button {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.admin-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-box table th,
+.admin-box table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.admin-box table th {
+  background-color: #004d26;
+  color: white;
+}
+
+.admin-box table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.logout-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #c0392b;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.logout-button:hover {
+  background-color: #e74c3c;
+}
