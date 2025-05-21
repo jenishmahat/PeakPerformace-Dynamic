@@ -1,13 +1,10 @@
 <?php
 $page_title = "Admin Panel - Peak Performance";
 include 'auth.php';
-if ($_SESSION['role'] !== 'admin') {
-    die("Access Denied. <a href='dashboard.php'>Go back</a>");
-}
+requireRole('admin');
 include 'header.php';
 include 'db.php';
 
-// Handle Add or Edit
 if (isset($_POST['save'])) {
     $email = $_POST['email'];
     $role = $_POST['role'];
@@ -26,7 +23,6 @@ if (isset($_POST['save'])) {
     exit();
 }
 
-// Handle Delete
 if (isset($_GET['delete'])) {
     if ($_GET['delete'] != $_SESSION['user_id']) {
         $stmt = $pdo->prepare("DELETE FROM users WHERE id = ?");
@@ -49,52 +45,104 @@ if (isset($_GET['edit'])) {
 }
 ?>
 
-<main class="main-content">
-  <div class="admin-box">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><?= $page_title ?></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+    }
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
 
-    <h2>Admin Panel</h2>
-    <p>Welcome, <?php echo $_SESSION['email']; ?>!</p>
+<div class="wrapper">
+  <main class="main-content py-5">
+    <div class="container">
+      <div class="card shadow p-4">
+        <h2 class="text-center text-success mb-4">Admin Panel</h2>
+        <p class="text-center">Welcome, <?= htmlspecialchars($_SESSION['email']); ?>!</p>
 
-    <h3><?php echo $id ? "Edit User" : "Add New User"; ?></h3>
-    <form method="POST">
-      <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
-      <input type="email" name="email" placeholder="Email" required value="<?= htmlspecialchars($email) ?>">
-      <select name="role" required>
-        <option value="user" <?= $role === 'user' ? 'selected' : '' ?>>User</option>
-        <option value="admin" <?= $role === 'admin' ? 'selected' : '' ?>>Admin</option>
-      </select>
-      <button type="submit" name="save">Save</button>
-    </form>
+        <h4><?= $id ? "Edit User" : "Add New User"; ?></h4>
+        <form method="POST" class="row g-3 mb-4">
+          <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
+          <div class="col-md-5">
+            <input type="email" name="email" class="form-control" placeholder="Email" required value="<?= htmlspecialchars($email) ?>">
+          </div>
+          <div class="col-md-3">
+            <select name="role" class="form-select" required>
+              <option value="user" <?= $role === 'user' ? 'selected' : '' ?>>User</option>
+              <option value="admin" <?= $role === 'admin' ? 'selected' : '' ?>>Admin</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" name="save" class="btn btn-success w-100">Save</button>
+          </div>
+        </form>
 
-    <h3>User List</h3>
-    <table border="1">
-      <tr>
-        <th>ID</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Actions</th>
-      </tr>
-      <?php
-      $result = $pdo->query("SELECT id, email, role FROM users");
-      while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-          $id = $row['id'];
-          $email = htmlspecialchars($row['email']);
-          $role = htmlspecialchars($row['role']);
-          echo "<tr>
-                  <td>$id</td>
-                  <td>$email</td>
-                  <td>$role</td>
-                  <td>
-                    <a href='admin.php?edit=$id'>Edit</a> |
-                    <a href='admin.php?delete=$id' onclick=\"return confirm('Delete this user?')\">Delete</a>
-                  </td>
-                </tr>";
-      }
-      ?>
-    </table>
+        <h4>User List</h4>
+        <table class="table table-bordered table-hover">
+          <thead class="table-success">
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php
+          $result = $pdo->query("SELECT id, email, role FROM users");
+          while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+              $id = $row['id'];
+              $email = htmlspecialchars($row['email']);
+              $role = htmlspecialchars($row['role']);
+              echo "<tr>
+                      <td>$id</td>
+                      <td>$email</td>
+                      <td>$role</td>
+                      <td>
+                        <a href='admin.php?edit=$id' class='btn btn-sm btn-primary me-2'>Edit</a>
+                        <a href='admin.php?delete=$id' class='btn btn-sm btn-danger' onclick=\"return confirm('Delete this user?')\">Delete</a>
+                      </td>
+                    </tr>";
+          }
+          ?>
+          </tbody>
+        </table>
 
-    <p><a class="logout-button" href="logout.php">Logout</a></p>
-  </div>
-</main>
+        <div class="row g-2 mb-6">
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success w-100" onclick="window.location.href='admin_activities.php'">Add Activities</button>
+          </div>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-success w-100" onclick="window.location.href='events.php'">Add Events</button>
+          </div>
+        </div>
 
-<?php include 'footer.php'; ?>
+        <div class="text-center">
+          <a href="logout.php" class="btn btn-danger mt-3">Logout</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <?php include 'footer.php'; ?>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 <?php
 // Only start session if not already active
 // if (session_status() === PHP_SESSION_NONE) {
@@ -16,11 +17,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
   <link rel="icon" href="images/ic.png" type="image/png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <?php if (basename($_SERVER['PHP_SELF']) === 'login.php' || basename($_SERVER['PHP_SELF']) === 'signup.php' || basename($_SERVER['PHP_SELF']) === 'dashboard.php'|| basename($_SERVER['PHP_SELF'])==='admin.php'): ?>
-    <link rel="stylesheet" href="auth.css">
+    
   <?php endif; ?>
   <script defer src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
 
@@ -45,6 +48,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <li><a href="dashboard.php">Dashboard</a></li>
         <?php if ($_SESSION['role'] === 'admin'): ?>
           <li><a href="admin.php">Admin Panel</a></li>
+          
+
         <?php endif; ?>
         <li><a href="logout.php">Logout</a></li>
       <?php else: ?>

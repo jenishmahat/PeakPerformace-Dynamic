@@ -18,7 +18,7 @@
         <li>1 group class per week</li>
         <li>Locker access</li>
       </ul>
-      <a href="login.php" class="btn">Join Now</a>
+      <a href="contact.php" class="btn">Join Now</a>
     </div>
 
     <div class="plan-card highlight">
@@ -30,7 +30,7 @@
         <li>1 personal training session/month</li>
         <li>Nutrition consultation</li>
       </ul>
-      <a href="login.php" class="btn">Join Now</a>
+      <a href="contact.php" class="btn">Join Now</a>
     </div>
 
     <div class="plan-card">
@@ -42,7 +42,7 @@
         <li>VIP lounge & sauna</li>
         <li>Priority event access</li>
       </ul>
-      <a href="login.php" class="btn">Join Now</a>
+      <a href="contact.php" class="btn">Join Now</a>
     </div>
   </section>
 

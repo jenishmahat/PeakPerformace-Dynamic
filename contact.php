@@ -28,12 +28,12 @@
       </div>
 
       <!-- Contact Form -->
-      <form class="contact-form" id="contactForm">
+      <form role="form" aria-label="Main form" class="contact-form" id="contactForm">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required minlength="3" placeholder="Enter your full name" />
 
         <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email" />
+        <input type="email" id="email" name="email" aria-label="Email address" required placeholder="Enter your email" />
 
         <label for="message">Your Message:</label>
         <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
